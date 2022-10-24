@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  TextInput,
-  FlatList,
-} from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 import { GoalInput } from "./components/GoalInput";
 import { GoalItem } from "./components/GoalItem";
 
@@ -25,6 +18,10 @@ export default function App() {
     }
   };
 
+  const removeItemhandler = (text) => {
+    setGoals((goals) => goals.filter((goal) => goal.text !== text));
+  };
+
   return (
     <View style={styles.appContainer}>
       <GoalInput
@@ -36,7 +33,12 @@ export default function App() {
         <Text>List of goals..</Text>
         <FlatList
           data={goals}
-          renderItem={(itemData) => <GoalItem text={itemData.item.text} />}
+          renderItem={(itemData) => (
+            <GoalItem
+              text={itemData.item.text}
+              deleteHandler={removeItemhandler}
+            />
+          )}
           alwaysBounceVertical={false}
         />
       </View>
