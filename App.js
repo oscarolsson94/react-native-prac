@@ -30,7 +30,9 @@ export default function App() {
       <View style={styles.goalsContainer}>
         <Text>List of goals..</Text>
         {goals.map((goal, index) => (
-          <Text key={index}>{goal}</Text>
+          <View key={index} style={styles.goalItem}>
+            <Text style={styles.goalItemText}>{goal}</Text>
+          </View>
         ))}
       </View>
     </View>
@@ -61,5 +63,14 @@ const styles = StyleSheet.create({
   },
   goalsContainer: {
     flex: 5,
+  },
+  goalItem: {
+    margin: 8,
+    padding: 8,
+    borderRadius: 6,
+    backgroundColor: "#5e08cc",
+  },
+  goalItemText: {
+    color: "white",
   },
 });
