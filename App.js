@@ -10,8 +10,10 @@ export default function App() {
   };
 
   const addGoalHandler = () => {
-    setGoals((goals) => [...goals, text]);
-    setText("");
+    if (text) {
+      setGoals((goals) => [...goals, text]);
+      setText("");
+    }
   };
 
   return (
