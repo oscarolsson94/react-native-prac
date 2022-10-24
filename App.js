@@ -7,6 +7,7 @@ import {
   TextInput,
   FlatList,
 } from "react-native";
+import { GoalInput } from "./components/GoalInput";
 import { GoalItem } from "./components/GoalItem";
 
 export default function App() {
@@ -26,15 +27,11 @@ export default function App() {
 
   return (
     <View style={styles.appContainer}>
-      <View style={styles.inputContainer}>
-        <TextInput
-          value={text}
-          onChangeText={goalInputHandler}
-          style={styles.textInput}
-          placeholder="Your course goal!"
-        />
-        <Button title="Add Goal" onPress={addGoalHandler} />
-      </View>
+      <GoalInput
+        text={text}
+        inputHandler={goalInputHandler}
+        addHandler={addGoalHandler}
+      />
       <View style={styles.goalsContainer}>
         <Text>List of goals..</Text>
         <FlatList
