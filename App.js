@@ -33,11 +33,8 @@ export default function App() {
         <Text>List of goals..</Text>
         <FlatList
           data={goals}
-          renderItem={(itemData) => (
-            <GoalItem
-              text={itemData.item.text}
-              deleteHandler={removeItemhandler}
-            />
+          renderItem={({ item }) => (
+            <GoalItem text={item.text} deleteHandler={removeItemhandler} />
           )}
           alwaysBounceVertical={false}
         />
